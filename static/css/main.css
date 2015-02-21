@@ -1,0 +1,72 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    text-align: center;
+    font-family: 'Varela Round', arial, sans-serif;
+    font-size: 13px;
+    color: #444444;
+}
+
+#main {
+	margin-top: 40px;
+}
+
+.microphone {
+	margin-top: 30px;
+}
+
+.microphone i {
+    color: #000000;
+    font-size: 60px;
+    padding-top: 5px;
+    border-radius: 100px;
+    width: 68px;
+    padding: 7px 0 2px;
+    border: 1px solid #CCC;
+}
+
+.microphone i.recording {
+    background-color: #EF0E0E;
+    color: #FFFFFF;
+    transition: background-color 0.5 ease-in-out;
+    -webkit-transition: background-color 0.5 ease-in-out;
+}
+
+.container .main {
+	text-align: center;
+}
+
+#prefooter {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 80px;
+}
+
+#footer {
+	position: fixed;
+	left: 0;
+	right: 0;
+    bottom: 0;
+    padding-top: 20px;
+    font-size: 16px;
+    height: 60px;
+    background-color: #444444;
+    color: #999999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
