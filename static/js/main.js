@@ -191,7 +191,8 @@
 		};
 
 		ws.onmessage = function(e) {
-		   console.log(e.data)
+		   console.log(e.data);
+
 		}
 
 		// ==== SET UP MIC HANDLER ====
@@ -222,7 +223,7 @@
 			       // console.log(blob);
 			       ws.send(blob);
 			   });
-			}, 3000);
+			}, 1000);
 
 		}
 
