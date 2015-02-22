@@ -1,6 +1,10 @@
 (function($) {
 	$(document).ready(function() {
-    
+
+		// ==== RENDER THE BPM SELECTOR ====
+
+    	var spinner = $( "#bpm" ).spinner();
+
 		// ==== RENDER THE STAFF OBJECT ====
 
 		var canvas = $("#staff")[0];
@@ -93,24 +97,54 @@
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
 		navigator.getUserMedia({audio:true}, gotStream, function() {alert('error')});
 
+		// ==== SET UP WEBSOCKET THINGY ====
+
+		// CHANGE TO RELATIVE URL
+		var ws = new WebSocket("ws://127.0.0.1:8000/submit");
+		ws.onopen = function () {
+		   console.log("Opened connection to websocket");
+		};
+
+		ws.onmessage = function(e) {
+		   console.log("ayy lmao")
+		}
 
 		// ==== SET UP MIC HANDLER ====
 
-    	$('i.fa-microphone, div#speech-content-elements').click(function() {
+		var intervalKey;
+		var rec;
 
-			$('.cover i.fa-microphone').toggleClass('recording');
+		function startRecord() {
 
-            rec = new Recorder(sourceNode);
+			rec = new Recorder(sourceNode);
 
-            rec.record();
+	        rec.record();
+	        ws.send("start");
 
 			// export a wav every second, so we can send it using websockets
 			intervalKey = setInterval(function() {
 			   rec.exportWAV(function(blob) {
 			       rec.clear();
-			       console.log(blob);
+			       // console.log(blob);
+			       ws.send(blob);
 			   });
-			}, 1000);
+			}, 3000);
+
+		}
+
+    	$('i.fa-microphone').click(function() {
+
+    		if ($(this).hasClass('recording')) {
+    			console.log('b');
+    			rec.stop();
+				rec.clear();
+				clearInterval(intervalKey);
+    		} else {
+    			console.log('a')
+    			startRecord();
+    		}
+
+    		$(this).toggleClass('recording');
 
 			// var notes = [
 			//     // A quarter-note C.

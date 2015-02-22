@@ -10,8 +10,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link href='http://fonts.googleapis.com/css?family=Varela+Round|Lato:300,400,900' rel='stylesheet' type='text/css'>
-        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link href='//fonts.googleapis.com/css?family=Varela+Round|Lato:300,400,900' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <style>
@@ -48,9 +49,24 @@
       <div class="row">
         <div class="main cover col-md-12">
             <h3>Hum a tune and watch it transcribed into music!</h3>
-            <p class="microphone">
-                <i class="fa fa-microphone"></i>
-            </p>
+            <div class="microphone">
+                <div class="col-md-1 col-sm-offset-4">
+                    <span>Time:</span>
+                    <select name="sig" id="sign">
+                      <option>2/4</option>
+                      <option>3/4</option>
+                      <option selected="selected">4/4</option>
+                      <option>6/8</option>
+                      <option>9/8</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <i class="fa fa-microphone"></i>
+                </div>
+                <div class="col-md-1">
+                    <span>BPM:</span> <input type="text" id="bpm" value="120" />
+                </div>
+            </div>
             <canvas id="staff" width="700" height="100"></canvas>
         </div>
       </div>
@@ -66,12 +82,14 @@
         </div>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/vexflow-min.js"></script>
         <script src="js/recorderjs/recorder.js"></script>
+        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
         <script src="js/main.js"></script>
 
