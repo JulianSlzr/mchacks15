@@ -31,3 +31,4 @@ def submit(ws):
             wave_file.write(data)
             wave_file.close()
             # process_file(file_name)
+            # os.remove(file_name)
