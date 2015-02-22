@@ -23,6 +23,7 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/metronome.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -51,14 +52,14 @@
             <h3>Hum a tune and watch it transcribed into music!</h3>
             <div class="microphone">
                 <div class="col-md-1 col-sm-offset-4">
-                    <span>Time:</span>
-                    <select name="sig" id="sign">
+                    <span>Time:<br />4/4</span>
+<!--                     <select name="sig" id="sign">
                       <option>2/4</option>
                       <option>3/4</option>
                       <option selected="selected">4/4</option>
                       <option>6/8</option>
                       <option>9/8</option>
-                    </select>
+                    </select> -->
                 </div>
                 <div class="col-md-2">
                     <i class="fa fa-microphone"></i>
@@ -66,8 +67,15 @@
                 <div class="col-md-1">
                     <span>BPM:</span> <input type="text" id="bpm" value="120" />
                 </div>
+                <div class="col-md-1">
+                    <div class="beep"></div>
+                </div>
             </div>
-            <canvas id="staff" width="700" height="100"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="countdown-row col-md-12">
+            <p id="countdown"><span></span></p>
         </div>
       </div>
     </div>
@@ -89,6 +97,7 @@
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/vexflow-min.js"></script>
         <script src="js/recorderjs/recorder.js"></script>
+        <script src="js/metronome/metronome.js"></script>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
         <script src="js/main.js"></script>
